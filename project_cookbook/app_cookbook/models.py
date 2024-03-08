@@ -1,0 +1,52 @@
+from django.db import models
+from django.db.models.signals import m2m_changed
+from django.dispatch import receiver
+
+'''
+- ### Рецепты:
+    - Название
+    - Описание
+    - Шаги приготовления
+    - Время приготовления
+    - Изображение
+    - Автор
+    - *другие поля на ваш выбор, например ингредиенты и т.п.
+
+- ### *Категории рецептов
+    - Название
+    - *другие поля на ваш выбор
+
+- ### *Связующая таблица для связи Рецептов и Категории
+    - *обязательные для связи поля
+    - *другие поля на ваш выбор
+'''
+
+
+    
+class Author(models.Model):
+    name=models.CharField(max_length=100)
+    email=models.EmailField()
+    bio=models.TextField()
+    birthday=models.DateField()
+    
+    def __str__(self):
+        return f'{self.name},  email: {self.email}'
+    
+class Category(models.Model):
+    name=models.CharField(max_length=100)
+    description=models.TextField()
+    
+    def __str__(self):
+        return str(self.name)
+    
+class Recipe(models.Model):
+    title=models.CharField(max_length=100)
+    description=models.TextField()
+    steps=models.TextField()
+    cooking_time=models.TimeField()
+    pecipe_image=models.ImageField(null=True, blank=True)
+    author=models.ForeignKey(Author,on_delete=models.CASCADE)
+    category = models.ManyToManyField(Category)
+    
+
+    
