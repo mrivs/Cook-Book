@@ -75,4 +75,8 @@
 
     python manage.py createsuperuser
 
+Сбор статики
+
+    python manage.py collectstatic
+
 https://pressanybutton.ru/post/poleznye-instrumenty/razvorachivanie-django-proekta-na-pythonanywhere/

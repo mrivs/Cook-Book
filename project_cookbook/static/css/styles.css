@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+html {
+    font-family: 'Lato', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.cur-po {
+    cursor: pointer;
+}
+
+.base_page_header{
+    margin-top: 33px;
+    margin-left: 32px;
+    margin-bottom: 21px;
+    color: #000;
+    font-family: "Lato";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}

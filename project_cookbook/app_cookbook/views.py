@@ -11,17 +11,6 @@ def main(request):
     recipes = Recipe.objects.all()[:5]
     return render(request, "app_cookbook/main.html", context)
 
-# def register(request):
-#     # clients = Client.objects.all()
-#     context = {"title": "register"}
-#     return render(request, "app_cookbook/register.html", context)
-
-# def login(request):
-#     # clients = Client.objects.all()
-#     context = {"title": "login"}
-
-#     return render(request, "app_cookbook/login.html", context)
-
 def recipe_detail(request, id):
     recipe = Recipe.objects.get(id=id)
     context = {"title": "recipe_detail"}
@@ -33,7 +22,7 @@ def logout_user(request):
 
 def add_edit_recipe(request):
     # Логика добавления/редактирования рецепта
-    return render(request, 'add_edit_recipe.html')
+    return render(request, 'app_cookbook/add_edit_recipe.html')
 
 
 def register(request):
