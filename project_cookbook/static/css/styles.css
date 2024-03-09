@@ -1,12 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap'); */
 
 html {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Arial', sans-serif;
 }
 
 * {
     margin: 0;
     padding: 0;
+    text-decoration: none;
 }
 
 .cur-po {
@@ -17,10 +18,85 @@ html {
     margin-top: 33px;
     margin-left: 32px;
     margin-bottom: 21px;
-    color: #000;
-    font-family: "Lato";
-    font-size: 14px;
+    color: #14172f;
+    font-family: "Arial";
+    font-size: 24px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+}
+
+.header {
+    background-color: #12121b;
+    width: 100%;
+    height: 65px;
+    flex-shrink: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-box {
+    width: 1140px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-box-left {
+    gap: 41px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 38px;
+}
+
+.header-box-right {
+    gap: 41px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+
+.header-main-list__text {
+    color: #fb8b8b;
+    font-family: "Arial";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+
+}
+
+.loging-form {
+    max-width: 300px;
+    margin: 0 auto;
+
+}
+.register-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.button-submit {
+    width: 100px;
+    height: 49px;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+    background: #F16D7F;
+    cursor: pointer;
+    border-top-right-radius: 24px;
+    border-bottom-right-radius: 24px;
+    vertical-align: middle;
+    padding-left: 15px;
+    border: none;
 }
