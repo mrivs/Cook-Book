@@ -7,7 +7,15 @@
     <title>Document</title>
 </head>
 <body>
+    <h2> Base page </h2>
 
+    <li class="last">
+        <a href="{% url 'main' %}">Главная</a> | 
+        <a href="{% url 'register' %}">Регистрация</a> | 
+        <a href="{% url 'login' %}">Войти</a>
+
+    </li>
+    
     {% block content %}
     Контент скоро появится...
     {% endblock %}

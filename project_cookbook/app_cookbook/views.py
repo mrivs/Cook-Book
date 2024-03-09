@@ -1,63 +1,54 @@
-from django.shortcuts import render
+
 from django.shortcuts import get_object_or_404, redirect, render
-
-# Create your views here.
-import logging
-from django.http import HttpResponse
-from django.shortcuts import render
-from datetime import datetime, timedelta
-# from .models import Order, Client, Product
-# from .forms import ClientForm, ProductForm
-
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
+from .models import Recipe, Category
 
 
 def main(request):
     # clients = Client.objects.all()
     context = {"title": "main page"}
-
+    recipes = Recipe.objects.all()[:5]
     return render(request, "app_cookbook/main.html", context)
 
+# def register(request):
+#     # clients = Client.objects.all()
+#     context = {"title": "register"}
+#     return render(request, "app_cookbook/register.html", context)
 
-# def client_orders(request, client_id):
-#     client = get_object_or_404(Client, pk=client_id)
+def login(request):
+    # clients = Client.objects.all()
+    context = {"title": "login"}
 
-#     orders_7_days = Order.objects.filter(
-#         client=client, date_ordered__gte=datetime.now() - timedelta(days=7)
-#     ).order_by("-date_ordered")
-#     orders_30_days = Order.objects.filter(
-#         client=client, date_ordered__gte=datetime.now() - timedelta(days=30)
-#     ).order_by("-date_ordered")
-#     orders_365_days = Order.objects.filter(
-#         client=client, date_ordered__gte=datetime.now() - timedelta(days=365)
-#     ).order_by("-date_ordered")
+    return render(request, "app_cookbook/login.html", context)
 
-#     context = {
-#         "client": client,
-#         "orders_7_days": orders_7_days,
-#         "orders_30_days": orders_30_days,
-#         "orders_365_days": orders_365_days,
-#     }
+def recipe_detail(request, id):
+    recipe = Recipe.objects.get(id=id)
+    context = {"title": "recipe_detail"}
+    return render(request, 'app_cookbook/recipe_detail.html', context)
 
-#     return render(request, "myapp/client_orders.html", context)
+def logout(request):
+    # Логика выхода пользователя
+    return render(request, 'app_cookbook/logout.html')
 
-
-# def order_full(request, order_id):
-
-#     order = get_object_or_404(Order, pk=order_id)
-#     products = Product.objects.filter(order=order)
-#     context = {"products": products, "order": order}
-#     return render(request, "myapp/order_full.html", context)
+def add_edit_recipe(request):
+    # Логика добавления/редактирования рецепта
+    return render(request, 'add_edit_recipe.html')
 
 
-# def client_form(request):
 
-#     if request.method == "POST":
-#         form = ClientForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect("client_form")
-#     else:
-#         form = ClientForm()
-#     context = {"form": form}
-#     return render(request, "myapp/client_form.html", context)
-# Create your views here.
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            # выполняем аутентификацию
+            # user = authenticate(username=username, password=password)
+            # login(request, user)
+            return redirect('/')
+    else:
+        form = UserCreationForm()
+    context={'user_form': form}
+    return render(request, 'app_cookbook/register.html',context)    

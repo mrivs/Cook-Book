@@ -1,7 +1,7 @@
 from django.db import models
 from django.db.models.signals import m2m_changed
 from django.dispatch import receiver
-
+from django.contrib.auth.models import User
 '''
 - ### Рецепты:
     - Название
@@ -21,17 +21,6 @@ from django.dispatch import receiver
     - *другие поля на ваш выбор
 '''
 
-
-    
-class Author(models.Model):
-    name=models.CharField(max_length=100)
-    email=models.EmailField()
-    bio=models.TextField()
-    birthday=models.DateField()
-    
-    def __str__(self):
-        return f'{self.name},  email: {self.email}'
-    
 class Category(models.Model):
     name=models.CharField(max_length=100)
     description=models.TextField()
@@ -45,8 +34,8 @@ class Recipe(models.Model):
     steps=models.TextField()
     cooking_time=models.TimeField()
     pecipe_image=models.ImageField(null=True, blank=True)
-    author=models.ForeignKey(Author,on_delete=models.CASCADE)
-    category = models.ManyToManyField(Category)
+    author=models.ForeignKey(User,on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     
 
     

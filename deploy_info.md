@@ -8,6 +8,7 @@
 
     python.exe -m pip install --upgrade pip
     pip install django
+    python -m pip install Pillow
 
 создание проекта (myproject) и приложения (myapp) django
 
