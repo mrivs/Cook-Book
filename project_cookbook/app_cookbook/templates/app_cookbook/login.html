@@ -2,12 +2,14 @@
 {% block content %}
 
 <div class="login-box">
-<form class="login-form" method="post">
-    {% csrf_token %}
-    {{ form.username }}
-    {{ form.password }}
-    <button class="button-submit" type="submit">Login</button>
-</form>
-  <p><a href="{% url 'main' %}">Выход</a></p>
+  <form class="login-form" method="post">
+      {% csrf_token %}
+      <p>Имя пользователя </p>
+      {{ form.username }}
+      <p>Пароль </p>
+      {{ form.password }}
+      <button class="button-submit" type="submit">Login</button>
+  </form>
+    
 </div>
 {% endblock %}

@@ -71,10 +71,22 @@ html {
 
 }
 
-.loging-form {
-    max-width: 300px;
-    margin: 0 auto;
+.login-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.login-form {
+
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: #14172f;
+    
+    
 }
 .register-input {
     width: 100%;
@@ -82,21 +94,21 @@ html {
     margin-bottom: 10px;
 }
 .button-submit {
-    width: 100px;
-    height: 49px;
+    margin-top: 20px;
+    width: 150px;
+    height: 40px;
     font-family: 'Lato';
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 17px;
     display: flex;
+    justify-content: center;
     align-items: center;
     color: #FFFFFF;
-    background: #F16D7F;
+    background: #b62b40;
     cursor: pointer;
-    border-top-right-radius: 24px;
-    border-bottom-right-radius: 24px;
+    border-radius: 24px;
     vertical-align: middle;
-    padding-left: 15px;
     border: none;
 }
