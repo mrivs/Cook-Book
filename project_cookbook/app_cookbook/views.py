@@ -13,7 +13,7 @@ def main(request):
 
 def recipe_detail(request, id):
     recipe = Recipe.objects.get(id=id)
-    context = {"title": "recipe_detail"}
+    context = {"title": "recipe_detail",'recipe':recipe}
     return render(request, 'app_cookbook/recipe_detail.html', context)
 
 def logout_user(request):

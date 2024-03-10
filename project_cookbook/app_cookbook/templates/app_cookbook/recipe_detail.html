@@ -1,4 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
-    {{ title }}
+
+<section class='section-box'>
+<div class="content-box">
+    <h2>{{ recipe.title }}</h2>
+    <h3>Категория: {{ recipe.category.name }}</h3>
+
+    <p>{{ recipe.description }}</p>
+    <h3>Ингридиенты:</h3>
+    <p> {{ recipe.ingredients }}</p>
+    <h3>Шаги приготовления:</h3>
+    <p> {{ recipe.steps }}</p>
+    <p>Время готовки: {{ recipe.cooking_time }}</p>
+    <img src="{{ recipe.recipe_image.url }}" alt="">
+    <p>Автор: {{ recipe.author.username }}</p>
+    
+</div>
+</section>
 {% endblock %}
