@@ -14,7 +14,16 @@ html {
     cursor: pointer;
 }
 
-.base_page_header{
+.form-error {
+    color: red;
+}
+
+.error-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.base_page_header {
     margin-top: 33px;
     margin-left: 32px;
     margin-bottom: 21px;
@@ -35,6 +44,8 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    
+    margin-bottom: 20px; 
 }
 
 .header-box {
@@ -57,7 +68,7 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-   
+
 }
 
 .header-main-list__text {
@@ -71,7 +82,27 @@ html {
 
 }
 
-.login-box{
+.intro {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    /* margin-top: 1px;
+    margin-bottom: 15px; */
+}
+
+.intro-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro-box__image {
+    width: 100%;
+    
+}
+
+.login-box {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,14 +116,16 @@ html {
     align-items: center;
     gap: 10px;
     border: #14172f;
-    
-    
+
+
 }
+
 .register-input {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
 }
+
 .button-submit {
     margin-top: 20px;
     width: 150px;

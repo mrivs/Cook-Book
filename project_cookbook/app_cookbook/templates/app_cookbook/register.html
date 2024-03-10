@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2>{{ title }}</h2>
-
-    <form method="post">
+    
+<div class="login-box">
+    <form class="login-form" method="post">
         {% csrf_token %}
         {% for f in user_form %}
-            <p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+            <p><label class="form-label" > {{f.label}}: </label></p>
+            <p>{{ f }}</p>
             <div class="form-error">{{ f.errors }}</div>
         {% endfor %}
-        <input type="submit" value="Register">
+        <input  class="button-submit" type="submit" value="Register">
     </form>
-
+</div>
 {% endblock %}

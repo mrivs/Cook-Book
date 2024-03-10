@@ -4,10 +4,12 @@
 <div class="login-box">
   <form class="login-form" method="post">
       {% csrf_token %}
-      <p>Имя пользователя </p>
-      {{ form.username }}
-      <p>Пароль </p>
-      {{ form.password }}
+      {% for f in form %}
+        <p><label class="form-label" > {{f.label}}: </label></p>
+        <p>{{ f }}</p>
+        <div class="form-error">{{ f.errors }}</div>
+      {% endfor %}
+      <div class="form-error">{{ form.errors }}</div>
       <button class="button-submit" type="submit">Login</button>
   </form>
     

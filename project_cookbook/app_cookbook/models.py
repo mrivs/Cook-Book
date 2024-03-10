@@ -23,15 +23,16 @@ from django.contrib.auth.models import User
 
 class Category(models.Model):
     name=models.CharField(max_length=100)
-    description=models.TextField()
+    description=models.TextField(max_length=2000)
     
     def __str__(self):
         return str(self.name)
     
 class Recipe(models.Model):
     title=models.CharField(max_length=100)
-    description=models.TextField()
-    steps=models.TextField()
+    description=models.TextField(max_length=2000)
+    ingredients=models.TextField(max_length=2000, default='')
+    steps=models.TextField(max_length=2000)
     cooking_time=models.TimeField()
     pecipe_image=models.ImageField(null=True, blank=True)
     author=models.ForeignKey(User,on_delete=models.CASCADE)
