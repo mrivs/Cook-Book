@@ -7,8 +7,18 @@ class CategoryForm(forms.ModelForm):
         model = Category
         fields = ['name', 'description']
 
-class ProductRecipe(forms.ModelForm):
+class RecipeForm(forms.ModelForm):
     class Meta:
         model = Recipe
+        fields = ['title', 'description', 'ingredients', 'steps', 'cooking_time', 'pecipe_image', 'category']
+        labels = {
+            'title': 'Название рецепта',
+            'description': 'Описание',
+            'ingredients': 'Ингредиенты',
+            'steps': 'Инструкции по приготовлению',
+            'cooking_time': 'Время приготовления',
+            'pecipe_image': 'Изображение',
+            'category': 'Категория'
+        }
 
 

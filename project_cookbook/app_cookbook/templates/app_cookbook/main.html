@@ -1,4 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
-    {{ title }}
+<section class='section-box'>
+    <div class="content-box">
+
+    <h1>Случайные рецепты</h1>
+    
+    {% for recipe in recipes %}
+    <div class="recipe-short">
+        <h2>{{ recipe.title }}</h2>
+        <p>Время готовки {{ recipe.cooking_time }}</p>
+        <p>{{ recipe.description }}</p>
+        <p>Автор: {{ recipe.author.username }}</p>
+        <a href="{% url 'recipe_detail' recipe.id %}"><button class='button-recipe'>Посмотреть рецепт </button></a>
+    </div>
+    {% endfor %}
+</div>
+</section>
 {% endblock %}

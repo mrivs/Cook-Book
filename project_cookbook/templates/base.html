@@ -28,7 +28,7 @@
             </div>
             <div class="header-box-right">
                 {% if request.user.is_authenticated %}
-
+                <a class='header-main-list__text' href="{% url 'recipe_add' %}">Добавить рецепт</a>
                 <a class='header-main-list__text'> Приветствую, {{ user.username}} !</a>
                 <a class='header-main-list__text' href="{% url 'logout' %}">Выйти</a>
 
