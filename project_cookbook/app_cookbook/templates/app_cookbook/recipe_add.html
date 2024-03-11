@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    
+<section class='section-box'>
+<div class="content-box">
+    <h1>Добавить рецепт:</h1>
+    <form class="recipe-form" action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class='button-recipe' type="submit">Добавить рецепт</button>
+    </form>
+</div>
+</section>
+{% endblock %}

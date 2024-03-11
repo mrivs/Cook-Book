@@ -22,13 +22,14 @@
             <div class="header-box-left">
 
                 <a class='header-main-list__text' href="{% url 'main' %}">Главная</>
-                    <a class='header-main-list__text' href="{% url 'main' %}">Рецепты</a>
-                    <a class='header-main-list__text' href="{% url 'main' %}">Авторы</a>
+                    <a class='header-main-list__text' href="{% url 'recipes' %}">Рецепты</a>
+                    <a class='header-main-list__text' href="{% url 'about' %}">О сайте</a>
 
             </div>
             <div class="header-box-right">
                 {% if request.user.is_authenticated %}
                 <a class='header-main-list__text' href="{% url 'recipe_add' %}">Добавить рецепт</a>
+                <a class='header-main-list__text' href="{% url 'user_recipes' %}">Мои рецепты</a>
                 <a class='header-main-list__text'> Приветствую, {{ user.username}} !</a>
                 <a class='header-main-list__text' href="{% url 'logout' %}">Выйти</a>
 

@@ -3,11 +3,12 @@
 <section class='section-box'>
     <div class="content-box">
 
-    <h1>Случайные рецепты:</h1>
+    <h1>Все рецепты:</h1>
     
     {% for recipe in recipes %}
     <div class="recipe-short">
-        <h2>{{ recipe.title }}</h2>
+        <h3>{{ recipe.title }}</h3>
+        <p>Категория: {{ recipe.category.name }}<p>
         <p>Время готовки {{ recipe.cooking_time }}</p>
         <p>{{ recipe.description }}</p>
         <p>Автор: {{ recipe.author.username }}</p>
