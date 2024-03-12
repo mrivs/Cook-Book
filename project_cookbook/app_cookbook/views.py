@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import Recipe, Category
 from .forms import RecipeForm
 from django.contrib.auth.decorators import login_required
-
+from django.views.decorators.csrf import csrf_protect
 
 def main(request):
     # clients = Client.objects.all()
@@ -32,6 +32,7 @@ def recipe_detail(request, id):
 def logout_user(request):
     logout(request)
     return redirect('main')
+
 
 def add_edit_recipe(request):
     # Логика добавления/редактирования рецепта
