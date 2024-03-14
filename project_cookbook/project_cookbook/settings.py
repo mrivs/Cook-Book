@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 import os
 from pathlib import Path
-from dotenv import load_dotenv  
+from dotenv import load_dotenv
 
 
 load_dotenv()
@@ -25,12 +25,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-zkr3c$3tzc3z63rku%2rt+4ukj_x%nxctlr=q$w&7@6hojqxz!'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG= True
-    
-SESSION_COOKIE_SECURE = True  
+
+
+SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
 
@@ -82,18 +81,18 @@ WSGI_APPLICATION = 'project_cookbook.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {  
-    "default": {  
-        "ENGINE": "django.db.backends.mysql",  
-        "NAME": os.getenv("MYSQL_DBNAME"),  
-        "USER": os.getenv("MYSQL_USER"),  
-        "PASSWORD": os.getenv("MYSQL_PASSWORD"),  
-        "HOST": os.getenv("MYSQL_HOST"),  
-        "OPTIONS": {  
-            "init_command": "SET NAMES 'utf8mb4';SET sql_mode = 'STRICT_TRANS_TABLES'",  
-            "charset": "utf8mb4",  
-        },  
-    }  
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": os.getenv("MYSQL_DBNAME"),
+        "USER": os.getenv("MYSQL_USER"),
+        "PASSWORD": os.getenv("MYSQL_PASSWORD"),
+        "HOST": os.getenv("MYSQL_HOST"),
+        "OPTIONS": {
+            "init_command": "SET NAMES 'utf8mb4';SET sql_mode = 'STRICT_TRANS_TABLES'",
+            "charset": "utf8mb4",
+        },
+    }
 }
 
 
@@ -104,13 +103,13 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
-    {
+   {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
-    {
+   {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
@@ -119,7 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-RU'
 
 TIME_ZONE = 'UTC'
 
@@ -145,14 +144,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL='/'          # <------------------
 LOGOUT_REDIRECT_URL='/'
 
-STATIC_URL = "static/"  
-STATIC_ROOT = BASE_DIR / "static/"  
-
-MEDIA_URL = "media/"  
-MEDIA_ROOT = BASE_DIR / "media/"
 
 if os.environ.get("DEBUG") == "False":
     DEBUG = False
 else:
     DEBUG = True
+
+STATIC_URL = "static/"
+STATIC_ROOT = BASE_DIR / "static/"
+
+MEDIA_URL = "media/"
+MEDIA_ROOT = BASE_DIR / "media/"
 

@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import Recipe, Category
 from .forms import RecipeForm
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.csrf import csrf_protect
+
 
 def main(request):
     # clients = Client.objects.all()
@@ -34,11 +34,6 @@ def logout_user(request):
     return redirect('main')
 
 
-def add_edit_recipe(request):
-    # Логика добавления/редактирования рецепта
-    return render(request, 'app_cookbook/add_edit_recipe.html')
-
-
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -49,7 +44,7 @@ def register(request):
     else:
         form = UserCreationForm()
     context={'user_form': form}
-    return render(request, 'app_cookbook/register.html',context) 
+    return render(request, 'app_cookbook/register.html',context)
 
 def recipe_add(request):
     if request.user.is_authenticated:
@@ -65,21 +60,21 @@ def recipe_add(request):
         return render(request, 'app_cookbook/recipe_add.html', {'form': form})
     else:
         return redirect('login')
-    
+
 @login_required
 def user_recipes(request):
     user = request.user
     recipes = Recipe.objects.filter(author=user)
-    
+
     return render(request, 'app_cookbook/user_recipes.html', {'recipes': recipes})
 
 @login_required
 def recipe_edit(request, id):
     recipe = Recipe.objects.get(id=id)
     if recipe.author != request.user:
-        return redirect('main')  
+        return redirect('main')
     if request.method == 'POST':
-        form = RecipeForm(request.POST, instance=recipe)
+        form = RecipeForm(request.POST,request.FILES, instance=recipe)
         if form.is_valid():
             form.save()
             return redirect('user_recipes')
