@@ -8,6 +8,11 @@
     {% for recipe in recipes %}
     <div class="recipe-short">
         <h2>{{ recipe.title }}</h2>
+        {% if recipe.pecipe_image %}
+            <div class="main-image-container">
+            <img class="main-image-container__img" src="{{ recipe.pecipe_image.url }}" alt="картинка"> 
+            </div>
+        {% endif %}
         <p>Время готовки {{ recipe.cooking_time }}</p>
         <p>{{ recipe.description }}</p>
         <p>Автор: {{ recipe.author.username }}</p>
