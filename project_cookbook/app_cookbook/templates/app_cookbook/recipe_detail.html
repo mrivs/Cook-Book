@@ -8,13 +8,17 @@
 
     <p>{{ recipe.description }}</p>
     <h3>Ингридиенты:</h3>
-    <p> {{ recipe.ingredients }}</p>
+    <p class='recipe-field'> {{ recipe.ingredients|linebreaksbr }}</p>
     <h3>Шаги приготовления:</h3>
-    <p> {{ recipe.steps }}</p>
+    <p class='recipe-field'> {{ recipe.steps|linebreaksbr }}</p>
     <p>Время готовки: {{ recipe.cooking_time }}</p>
-    <img src="{{ recipe.recipe_image.url }}" alt="">
+    {% if recipe.pecipe_image %}
+            <img src="{{ recipe.pecipe_image.url }}" alt="картинка">
+
+    {% endif %}
+
     <p>Автор: {{ recipe.author.username }}</p>
-    
+
 </div>
 </section>
 {% endblock %}

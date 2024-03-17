@@ -8,6 +8,8 @@ class CategoryForm(forms.ModelForm):
         fields = ['name', 'description']
 
 class RecipeForm(forms.ModelForm):
+    description = forms.CharField(widget=forms.Textarea)
+    steps=forms.CharField(widget=forms.Textarea)
     class Meta:
         model = Recipe
         fields = ['title', 'description', 'ingredients', 'steps', 'cooking_time', 'pecipe_image', 'category']

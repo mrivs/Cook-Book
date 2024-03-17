@@ -4,12 +4,12 @@
 <section class='section-box'>
 <div class="content-box">
     <h1>Редактирование рецепта</h1>
-    <form class="recipe-short" method="post">
+    <form class="recipe-short" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <input class='button-recipe' type="submit" value="Сохранить">
     </form>
-    
+
 </div>
 </section>
 {% endblock %}
