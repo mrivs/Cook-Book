@@ -265,12 +265,7 @@ input[type="text"], input[type="password"], textarea {
 }
 
 @media screen and (max-width: 767px) {
-
-    .intro-box__image {
-        width: 150%;
     
-    }
-
     .header {
         height: 100%;
         margin-bottom: 10px;
